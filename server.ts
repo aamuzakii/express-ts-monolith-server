@@ -2,9 +2,15 @@ import { Express, Request, Response } from "express";
 
 const dotenv = require("dotenv");
 const express = require("express");
+const mongoose = require("mongoose");
 
-// Load environment variables (optional)
 dotenv.config();
+mongoose.connect(process.env.MONGO_SRV);
+
+const Cat = mongoose.model("Cat", { name: String });
+
+const kitty = new Cat({ name: "Zildjian" });
+kitty.save().then(() => console.log("meow"));
 
 const app: Express = express();
 const port = process.env.PORT || 3000;
