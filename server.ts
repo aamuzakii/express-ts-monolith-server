@@ -1,11 +1,10 @@
 import { Express, Request, Response } from "express";
 
-// const dotenv = require("dotenv")
-import 'dotenv/config'
-const express = require("express")
+const dotenv = require("dotenv");
+const express = require("express");
 
 // Load environment variables (optional)
-// dotenv.config();
+dotenv.config();
 
 const app: Express = express();
 const port = process.env.PORT || 3000;
